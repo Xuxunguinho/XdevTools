@@ -63,11 +63,13 @@
             linkLabel1.TabIndex = 1;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Copyright @ xuxunginho";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(486, 344);
             Controls.Add(linkLabel1);
             Controls.Add(button2);
