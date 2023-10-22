@@ -32,25 +32,26 @@
             button1 = new Button();
             button2 = new Button();
             linkLabel1 = new LinkLabel();
+            button3 = new Button();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(87, 90);
+            button1.Location = new Point(72, 68);
             button1.Name = "button1";
             button1.Size = new Size(316, 52);
             button1.TabIndex = 0;
-            button1.Text = "Generate GUID";
+            button1.Text = "GENERATE GUID";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(87, 164);
+            button2.Location = new Point(72, 198);
             button2.Name = "button2";
             button2.Size = new Size(316, 52);
             button2.TabIndex = 0;
-            button2.Text = "Api Json Setting to Docker Env String";
+            button2.Text = "JSON to DOCKER ENV STRING";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -65,14 +66,25 @@
             linkLabel1.Text = "Copyright @ xuxunginho";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
+            // button3
+            // 
+            button3.Location = new Point(72, 134);
+            button3.Name = "button3";
+            button3.Size = new Size(316, 52);
+            button3.TabIndex = 0;
+            button3.Text = "JSON FORMATTER";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(486, 344);
+            ClientSize = new Size(448, 344);
             Controls.Add(linkLabel1);
             Controls.Add(button2);
+            Controls.Add(button3);
             Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -80,7 +92,7 @@
             MinimizeBox = false;
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "XdevTools";
+            Text = "XDevTools";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -90,5 +102,6 @@
         private Button button1;
         private Button button2;
         private LinkLabel linkLabel1;
+        private Button button3;
     }
 }

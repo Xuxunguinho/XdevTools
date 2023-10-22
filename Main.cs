@@ -36,5 +36,11 @@ namespace XdevTools
         {
             Process.Start(new ProcessStartInfo("http://github.com/Xuxunguinho") { UseShellExecute = true });
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var frm = new JsonFormatter();
+            frm.ShowDialog();
+        }
     }
 }

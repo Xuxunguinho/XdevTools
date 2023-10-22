@@ -52,10 +52,10 @@ namespace XdevTools
                 AddToClipboard();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                //throw;
+                txtResult.Text = ex.Message;
             }
         }
         private void AddToClipboard()
@@ -85,33 +85,55 @@ namespace XdevTools
         /// <param name="strBuilder"></param>
         private void GetValueFromProperty(JToken jToken, string strFinalValue, StringBuilder strBuilder)
         {
-            foreach (JProperty property in jToken)
+            try
             {
-                if (property.Value.HasValues)
+
+                if (jToken.Type == JTokenType.Array)
                 {
+                    strFinalValue += $"={jToken}";
 
-                    strFinalValue += "__" + property.Name;
-
-                    if (property.Value.Count() > 1)
-                        InitialValue += "__" + property.Name;
-
-                    GetValueFromProperty(property.Value, strFinalValue, strBuilder);
+                    strBuilder.AppendLine(strFinalValue);
 
                     strFinalValue = InitialValue;
                 }
                 else
                 {
 
-                    strFinalValue += $"__{property.Name}={property.Value}";
+                    foreach (JProperty property in jToken)
+                    {
+                        if (property.Value.HasValues)
+                        {
 
-                    strBuilder.AppendLine(strFinalValue);
+                            strFinalValue += "__" + property.Name;
 
-                    strFinalValue = InitialValue;
+                            if (property.Value.Count() > 1)
+                                InitialValue += "__" + property.Name;
+
+                            GetValueFromProperty(property.Value, strFinalValue, strBuilder);
+
+                            strFinalValue = InitialValue;
+                        }
+                        else
+                        {
+
+                            strFinalValue += $"__{property.Name}={property.Value}";
+
+                            strBuilder.AppendLine(strFinalValue);
+
+                            strFinalValue = InitialValue;
+                        }
+
+                    }
                 }
 
-            }
 
-            InitialValue = _initialDefaultValue;
+
+                InitialValue = _initialDefaultValue;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
     }

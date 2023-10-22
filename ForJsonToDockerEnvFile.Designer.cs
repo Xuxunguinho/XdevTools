@@ -31,11 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JsonToDockerEnvFile));
             splitContainer1 = new SplitContainer();
             txtSource = new RichTextBox();
+            panel1 = new Panel();
+            label1 = new Label();
             txtResult = new RichTextBox();
+            panel2 = new Panel();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -47,50 +53,94 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.Controls.Add(txtSource);
+            splitContainer1.Panel1.Controls.Add(panel1);
             // 
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(txtResult);
-            splitContainer1.Size = new Size(840, 564);
-            splitContainer1.SplitterDistance = 397;
+            splitContainer1.Panel2.Controls.Add(panel2);
+            splitContainer1.Size = new Size(943, 612);
+            splitContainer1.SplitterDistance = 341;
             splitContainer1.TabIndex = 1;
             // 
             // txtSource
             // 
             txtSource.BorderStyle = BorderStyle.FixedSingle;
             txtSource.Dock = DockStyle.Fill;
-            txtSource.Location = new Point(0, 0);
+            txtSource.Location = new Point(0, 39);
             txtSource.Name = "txtSource";
-            txtSource.Size = new Size(397, 564);
+            txtSource.ScrollBars = RichTextBoxScrollBars.ForcedBoth;
+            txtSource.Size = new Size(341, 573);
             txtSource.TabIndex = 1;
             txtSource.Text = "";
             txtSource.TextChanged += richTextBox1_TextChanged_1;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(label1);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(341, 39);
+            panel1.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(7, 13);
+            label1.Name = "label1";
+            label1.Size = new Size(43, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Source";
             // 
             // txtResult
             // 
             txtResult.BorderStyle = BorderStyle.FixedSingle;
             txtResult.Dock = DockStyle.Fill;
-            txtResult.Location = new Point(0, 0);
+            txtResult.Location = new Point(0, 39);
             txtResult.Name = "txtResult";
-            txtResult.Size = new Size(439, 564);
+            txtResult.ScrollBars = RichTextBoxScrollBars.ForcedBoth;
+            txtResult.Size = new Size(598, 573);
             txtResult.TabIndex = 1;
             txtResult.Text = "";
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(label2);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(598, 39);
+            panel2.TabIndex = 3;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(7, 13);
+            label2.Name = "label2";
+            label2.Size = new Size(39, 15);
+            label2.TabIndex = 0;
+            label2.Text = "Result";
             // 
             // JsonToDockerEnvFile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(840, 564);
+            ClientSize = new Size(943, 612);
             Controls.Add(splitContainer1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MinimizeBox = false;
             Name = "JsonToDockerEnvFile";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Api Json Setting section to Docker string Env";
+            Text = "JSON TO DOCKER ENV STRING";
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -99,5 +149,9 @@
         private SplitContainer splitContainer1;
         private RichTextBox txtSource;
         private RichTextBox txtResult;
+        private Panel panel1;
+        private Label label1;
+        private Panel panel2;
+        private Label label2;
     }
 }

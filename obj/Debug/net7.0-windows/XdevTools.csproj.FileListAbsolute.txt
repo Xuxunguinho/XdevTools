@@ -19,3 +19,4 @@ C:\Users\j.reis\Documents\Github\XdevTools\XdevTools\obj\Debug\net7.0-windows\re
 C:\Users\j.reis\Documents\Github\XdevTools\XdevTools\obj\Debug\net7.0-windows\XdevTools.JsonToDockerEnvFile.resources
 C:\Users\j.reis\Documents\Github\XdevTools\XdevTools\obj\Debug\net7.0-windows\XdevTools.Main.resources
 C:\Users\j.reis\Documents\Github\XdevTools\XdevTools\obj\Debug\net7.0-windows\XdevTools.Properties.Resources.resources
+C:\Users\j.reis\Documents\Github\XdevTools\XdevTools\obj\Debug\net7.0-windows\XdevTools.JsonFormatter.resources
