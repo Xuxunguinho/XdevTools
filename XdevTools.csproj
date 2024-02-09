@@ -8,6 +8,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>XdevTools.Program</StartupObject>
     <ApplicationIcon>devUtility.ico</ApplicationIcon>
+    <FileVersion>1.1</FileVersion>
+    <AssemblyVersion>1.1</AssemblyVersion>
+    <Company>https://github.com/Xuxunguinho</Company>
   </PropertyGroup>
 
   <ItemGroup>

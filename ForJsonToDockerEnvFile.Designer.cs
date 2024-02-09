@@ -60,7 +60,7 @@
             splitContainer1.Panel2.Controls.Add(txtResult);
             splitContainer1.Panel2.Controls.Add(panel2);
             splitContainer1.Size = new Size(943, 612);
-            splitContainer1.SplitterDistance = 341;
+            splitContainer1.SplitterDistance = 452;
             splitContainer1.TabIndex = 1;
             // 
             // txtSource
@@ -70,7 +70,7 @@
             txtSource.Location = new Point(0, 39);
             txtSource.Name = "txtSource";
             txtSource.ScrollBars = RichTextBoxScrollBars.ForcedBoth;
-            txtSource.Size = new Size(341, 573);
+            txtSource.Size = new Size(452, 573);
             txtSource.TabIndex = 1;
             txtSource.Text = "";
             txtSource.TextChanged += richTextBox1_TextChanged_1;
@@ -81,7 +81,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(341, 39);
+            panel1.Size = new Size(452, 39);
             panel1.TabIndex = 2;
             // 
             // label1
@@ -100,9 +100,10 @@
             txtResult.Location = new Point(0, 39);
             txtResult.Name = "txtResult";
             txtResult.ScrollBars = RichTextBoxScrollBars.ForcedBoth;
-            txtResult.Size = new Size(598, 573);
+            txtResult.Size = new Size(487, 573);
             txtResult.TabIndex = 1;
             txtResult.Text = "";
+            txtResult.TextChanged += txtResult_TextChanged;
             // 
             // panel2
             // 
@@ -110,7 +111,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(598, 39);
+            panel2.Size = new Size(487, 39);
             panel2.TabIndex = 3;
             // 
             // label2
