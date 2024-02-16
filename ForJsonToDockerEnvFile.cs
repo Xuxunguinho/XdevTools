@@ -22,54 +22,11 @@ namespace XdevTools
         public bool Inverted = false;
         private void richTextBox1_TextChanged_1(object sender, EventArgs e)
         {
-            try
-            {
 
-                if (Inverted)
-                {
-                    Inverted = false;
-                    FormatJsonText(txtSource.Text);
-                    return;
-                }
-                var stringData = txtSource.Text.Trim().StartsWith("{") ? txtSource.Text : "{" + txtSource.Text + "}";
-
-                txtResult.Text = string.Empty;
-
-                if (string.IsNullOrEmpty(txtSource.Text.Trim())) return;
-
-                FormatJsonText(stringData);
-
-                var jsonItem = JObject.Parse(stringData);
-                var strBuilder = new StringBuilder();
-
-                foreach (JProperty property in jsonItem.Properties())
-                {
-                    InitialValue = $"- {property.Name}";
-
-                    if (jsonItem.Properties().Count() == 1)
-                        _initialDefaultValue = InitialValue;
-
-                    if (property.Value.HasValues)
-                        GetValueFromProperty(property.Value, InitialValue, strBuilder);
-                    else
-                        strBuilder.AppendLine(InitialValue + $"={property.Value}");
-                }
-
-                txtResult.Text = strBuilder.ToString();
-
-                if (string.IsNullOrEmpty(txtResult.Text)) return;
-                AddToClipboard();
-
-            }
-            catch (Exception ex)
-            {
-
-                txtResult.Text = ex.Message;
-            }
         }
         private void AddToClipboard()
         {
-            Clipboard.SetText(txtResult.Text);
+            Clipboard.SetText(txtSource.Text);
             MessageBox.Show("The result was copied,use Ctrl + V to paste anywhere", "Sucesso",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -298,11 +255,90 @@ namespace XdevTools
 
         private async void txtResult_TextChanged(object sender, EventArgs e)
         {
-            Inverted = true; 
-            txtSource.Text =await  ParsedDockerEnvStringToJson(txtResult.Text);
-           
+
+
         }
 
-        
+        private async void button1_Click(object sender, EventArgs e)
+        {                    
+            txtSource.Text = await ParsedDockerEnvStringToJson(txtSource.Text);
+            FormatJsonText(txtSource.Text);       
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                var stringData = txtSource.Text.Trim().StartsWith("{") ? txtSource.Text : "{" + txtSource.Text + "}";
+
+                //txtResult.Text = string.Empty;
+
+                if (string.IsNullOrEmpty(txtSource.Text.Trim())) return;
+
+                FormatJsonText(stringData);
+
+                var jsonItem = JObject.Parse(stringData);
+                var strBuilder = new StringBuilder();
+
+                foreach (JProperty property in jsonItem.Properties())
+                {
+                    InitialValue = $"- {property.Name}";
+
+                    if (jsonItem.Properties().Count() == 1)
+                        _initialDefaultValue = InitialValue;
+
+                    if (property.Value.HasValues)
+                        GetValueFromProperty(property.Value, InitialValue, strBuilder);
+                    else
+                        strBuilder.AppendLine(InitialValue + $"={property.Value}");
+                }
+
+                txtSource.Text = strBuilder.ToString();
+
+                if (string.IsNullOrEmpty(txtSource.Text)) return;
+            
+
+            }
+            catch (Exception ex)
+            {
+                txtSource.Text = ex.Message;
+            }
+        }
+
+        private void JsonToDockerEnvFile_Resize(object sender, EventArgs e)
+        {
+            var center = (panTop.Size.Width / 2) - (panCenterTop.Width / 2);
+            panCenterTop.Location = new Point(center, panCenterTop.Location.Y);
+        }
+
+        private void txtSource_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (string.IsNullOrEmpty(txtSource.Text))
+                {
+
+                    btnJsonToDocker.Enabled = false;
+                    btnDockerToJson.Enabled = false;
+
+                    return;
+                }
+                JsonDocument.Parse(txtSource.Text);
+                btnJsonToDocker.Enabled = true;
+                btnDockerToJson.Enabled = false;
+            }
+            catch (System.Text.Json.JsonException ex)
+            {
+                btnJsonToDocker.Enabled = false;
+                btnDockerToJson.Enabled = true;
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            AddToClipboard() ;
+        }
     }
 }

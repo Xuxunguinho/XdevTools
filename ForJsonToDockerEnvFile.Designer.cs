@@ -29,130 +29,144 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JsonToDockerEnvFile));
-            splitContainer1 = new SplitContainer();
-            txtSource = new RichTextBox();
+            btnDockerToJson = new Button();
+            btnJsonToDocker = new Button();
+            panTop = new Panel();
+            panCenterTop = new Panel();
             panel1 = new Panel();
-            label1 = new Label();
-            txtResult = new RichTextBox();
             panel2 = new Panel();
-            label2 = new Label();
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
-            splitContainer1.Panel1.SuspendLayout();
-            splitContainer1.Panel2.SuspendLayout();
-            splitContainer1.SuspendLayout();
+            txtSource = new RichTextBox();
+            button1 = new Button();
+            panTop.SuspendLayout();
+            panCenterTop.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
-            // splitContainer1
+            // btnDockerToJson
             // 
-            splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(0, 0);
-            splitContainer1.Name = "splitContainer1";
+            btnDockerToJson.BackColor = Color.White;
+            btnDockerToJson.Enabled = false;
+            btnDockerToJson.FlatStyle = FlatStyle.Flat;
+            btnDockerToJson.ForeColor = Color.Black;
+            btnDockerToJson.Location = new Point(178, 3);
+            btnDockerToJson.Name = "btnDockerToJson";
+            btnDockerToJson.Size = new Size(187, 31);
+            btnDockerToJson.TabIndex = 1;
+            btnDockerToJson.Text = "Convert To Json";
+            btnDockerToJson.UseVisualStyleBackColor = false;
+            btnDockerToJson.Click += button1_Click;
             // 
-            // splitContainer1.Panel1
+            // btnJsonToDocker
             // 
-            splitContainer1.Panel1.Controls.Add(txtSource);
-            splitContainer1.Panel1.Controls.Add(panel1);
+            btnJsonToDocker.BackColor = Color.White;
+            btnJsonToDocker.Enabled = false;
+            btnJsonToDocker.FlatStyle = FlatStyle.Flat;
+            btnJsonToDocker.ForeColor = Color.Black;
+            btnJsonToDocker.Location = new Point(3, 3);
+            btnJsonToDocker.Name = "btnJsonToDocker";
+            btnJsonToDocker.Size = new Size(169, 31);
+            btnJsonToDocker.TabIndex = 1;
+            btnJsonToDocker.Text = "Convert To Docker Env";
+            btnJsonToDocker.UseVisualStyleBackColor = false;
+            btnJsonToDocker.Click += button2_Click;
             // 
-            // splitContainer1.Panel2
+            // panTop
             // 
-            splitContainer1.Panel2.Controls.Add(txtResult);
-            splitContainer1.Panel2.Controls.Add(panel2);
-            splitContainer1.Size = new Size(943, 612);
-            splitContainer1.SplitterDistance = 452;
-            splitContainer1.TabIndex = 1;
+            panTop.BackColor = Color.White;
+            panTop.BorderStyle = BorderStyle.FixedSingle;
+            panTop.Controls.Add(panCenterTop);
+            panTop.Dock = DockStyle.Top;
+            panTop.Location = new Point(0, 0);
+            panTop.Name = "panTop";
+            panTop.Padding = new Padding(0, 0, 0, 2);
+            panTop.Size = new Size(836, 45);
+            panTop.TabIndex = 4;
             // 
-            // txtSource
+            // panCenterTop
             // 
-            txtSource.BorderStyle = BorderStyle.FixedSingle;
-            txtSource.Dock = DockStyle.Fill;
-            txtSource.Location = new Point(0, 39);
-            txtSource.Name = "txtSource";
-            txtSource.ScrollBars = RichTextBoxScrollBars.ForcedBoth;
-            txtSource.Size = new Size(452, 573);
-            txtSource.TabIndex = 1;
-            txtSource.Text = "";
-            txtSource.TextChanged += richTextBox1_TextChanged_1;
+            panCenterTop.Controls.Add(button1);
+            panCenterTop.Controls.Add(btnJsonToDocker);
+            panCenterTop.Controls.Add(btnDockerToJson);
+            panCenterTop.Location = new Point(175, 3);
+            panCenterTop.Name = "panCenterTop";
+            panCenterTop.Size = new Size(476, 37);
+            panCenterTop.TabIndex = 2;
             // 
             // panel1
             // 
-            panel1.Controls.Add(label1);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(panel2);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 45);
             panel1.Name = "panel1";
-            panel1.Size = new Size(452, 39);
-            panel1.TabIndex = 2;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(7, 13);
-            label1.Name = "label1";
-            label1.Size = new Size(43, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Source";
-            // 
-            // txtResult
-            // 
-            txtResult.BorderStyle = BorderStyle.FixedSingle;
-            txtResult.Dock = DockStyle.Fill;
-            txtResult.Location = new Point(0, 39);
-            txtResult.Name = "txtResult";
-            txtResult.ScrollBars = RichTextBoxScrollBars.ForcedBoth;
-            txtResult.Size = new Size(487, 573);
-            txtResult.TabIndex = 1;
-            txtResult.Text = "";
-            txtResult.TextChanged += txtResult_TextChanged;
+            panel1.Padding = new Padding(10);
+            panel1.Size = new Size(836, 558);
+            panel1.TabIndex = 5;
             // 
             // panel2
             // 
-            panel2.Controls.Add(label2);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 0);
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(txtSource);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(10, 10);
             panel2.Name = "panel2";
-            panel2.Size = new Size(487, 39);
-            panel2.TabIndex = 3;
+            panel2.Size = new Size(816, 538);
+            panel2.TabIndex = 0;
             // 
-            // label2
+            // txtSource
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(7, 13);
-            label2.Name = "label2";
-            label2.Size = new Size(39, 15);
-            label2.TabIndex = 0;
-            label2.Text = "Result";
+            txtSource.BackColor = SystemColors.ControlLightLight;
+            txtSource.BorderStyle = BorderStyle.None;
+            txtSource.Dock = DockStyle.Fill;
+            txtSource.Location = new Point(0, 0);
+            txtSource.Name = "txtSource";
+            txtSource.ScrollBars = RichTextBoxScrollBars.ForcedBoth;
+            txtSource.Size = new Size(814, 536);
+            txtSource.TabIndex = 5;
+            txtSource.Text = "";
+            txtSource.TextChanged += txtSource_TextChanged;
+            // 
+            // button1
+            // 
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(371, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(96, 31);
+            button1.TabIndex = 2;
+            button1.Text = "Copy";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
             // 
             // JsonToDockerEnvFile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(943, 612);
-            Controls.Add(splitContainer1);
+            ClientSize = new Size(836, 603);
+            Controls.Add(panel1);
+            Controls.Add(panTop);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MinimizeBox = false;
             Name = "JsonToDockerEnvFile";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "JSON TO DOCKER ENV STRING";
-            splitContainer1.Panel1.ResumeLayout(false);
-            splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
-            splitContainer1.ResumeLayout(false);
+            Resize += JsonToDockerEnvFile_Resize;
+            panTop.ResumeLayout(false);
+            panCenterTop.ResumeLayout(false);
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private SplitContainer splitContainer1;
-        private RichTextBox txtSource;
-        private RichTextBox txtResult;
+        private Button btnDockerToJson;
+        private Button btnJsonToDocker;
+        private Panel panTop;
+        private Panel panCenterTop;
         private Panel panel1;
-        private Label label1;
         private Panel panel2;
-        private Label label2;
+        private RichTextBox txtSource;
+        private Button button1;
     }
 }
